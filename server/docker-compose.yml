@@ -5,7 +5,7 @@ networks:
     external: true
 
 services:
-  mysql-inventory:
+  inventory-mysql:
     image: mysql:8.3.0
     environment:
       MYSQL_ROOT_PASSWORD: mysql
