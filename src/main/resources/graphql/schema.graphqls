@@ -1,0 +1,11 @@
+type Query {
+    isInStock(skuCode: String!, quantity: Int!): Boolean!
+    inventory(id: ID): Inventory
+    inventories: [Inventory]
+}
+
+type Inventory {
+    id: ID!
+    skuCode: String!
+    quantity: Int!
+} 
