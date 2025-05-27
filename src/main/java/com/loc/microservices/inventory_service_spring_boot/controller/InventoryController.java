@@ -29,7 +29,7 @@ public class InventoryController {
     private final InventoryService inventoryService;
 
     // Kiểm tra stock (endpoint đơn giản cho order service)
-    @GetMapping("/simple")
+    @GetMapping("/check-stock")
     public boolean isInStock(@RequestParam String skuCode, @RequestParam Integer quantity) {
         return inventoryService.isInStock(skuCode, quantity);
     }
