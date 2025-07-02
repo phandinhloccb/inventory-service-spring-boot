@@ -4,7 +4,7 @@ info:
   description: API for checking product inventory
   version: v1.0.0
 servers:
-  - url: http://localhost:8080
+  - url: http://localhost:8082
     description: Inventory service server
 paths:
   /api/inventory/check-stock:

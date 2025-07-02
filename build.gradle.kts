@@ -30,9 +30,10 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.liquibase:liquibase-core")
 	implementation("io.swagger.core.v3:swagger-annotations:2.2.15")
-	implementation("io.swagger.core.v3:swagger-models:2.2.15") // <-- thêm dòng này
+	implementation("io.swagger.core.v3:swagger-models:2.2.15")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
+	implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
 
 	runtimeOnly("mysql:mysql-connector-java:8.0.33")
     liquibaseRuntime("org.liquibase:liquibase-core:4.20.0")
