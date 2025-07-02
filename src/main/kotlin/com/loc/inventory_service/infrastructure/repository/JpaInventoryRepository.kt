@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface JpaInventoryRepository : JpaRepository<InventoryEntity, Long> {
     fun existsBySkuCodeAndQuantityGreaterThanEqual(skuCode: String, quantity: Int): Boolean
+    fun findBySkuCode(skuCode: String): InventoryEntity?
 }

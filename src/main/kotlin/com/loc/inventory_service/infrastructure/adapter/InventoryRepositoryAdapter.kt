@@ -31,4 +31,7 @@ class InventoryRepositoryAdapter(
         return saveEntity.toModel()
     }
 
+    override fun findBySkuCode(inventory: Inventory): Inventory? {
+        return jpaInventoryRepository.findBySkuCode(inventory.skuCode)?.toModel()
+    }
 }

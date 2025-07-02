@@ -9,6 +9,16 @@ class AddInventoryService(
     private val inventoryRepositoryPort: InventoryRepositoryPort
 ) {
     fun addInventory(inventory: Inventory): Inventory{
-        return inventoryRepositoryPort.addInventory(inventory)
+        val existingInventory = inventoryRepositoryPort.findBySkuCode(inventory)
+
+        return if (existingInventory != null) {
+            val updatedInventory = existingInventory.copy(
+                quantity = existingInventory.quantity + inventory.quantity
+            )
+
+            inventoryRepositoryPort.addInventory(updatedInventory)
+        } else {
+            inventoryRepositoryPort.addInventory(inventory)
+        }
     }
 }

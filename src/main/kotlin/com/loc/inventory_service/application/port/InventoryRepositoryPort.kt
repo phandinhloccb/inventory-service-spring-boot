@@ -5,4 +5,5 @@ import com.loc.inventory_service.domain.model.Inventory
 interface InventoryRepositoryPort {
     fun existsBySkuCodeAndQuantityGreaterThanEqual(skuCode: String, quantity: Int): Boolean
     fun addInventory(inventory: Inventory): Inventory
+    fun findBySkuCode(inventory: Inventory): Inventory?
 }
