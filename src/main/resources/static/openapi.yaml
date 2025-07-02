@@ -47,6 +47,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+  /api/inventory/add:
+    post:
+      summary: add product in stock
+      description: add new or update product in stock
+      operationId: addItem
+      requestBody:
+        description: add product in stock
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddInventoryRequest'
+      responses:
+        200:
+          description: add Item successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddInventoryResponse'
+        400:
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddInventoryErrorResponse'
   /warmup:
     get:
       summary: Warmup endpoint
@@ -101,3 +126,45 @@ components:
         path:
           type: string
           example: "/api/inventory/check-stock"
+    AddInventoryRequest:
+      type: object
+      required:
+        - skuCode
+        - quantity
+      properties:
+        skuCode:
+          type: string
+          example: "IPHONE13-128"
+        quantity:
+          type: integer
+          format: int32
+          example: 1
+    AddInventoryResponse:
+      type: object
+      properties:
+        skuCode:
+          type: string
+          example: "IPHONE13-128"
+        quantity:
+          type: integer
+          format: int32
+          example: 1
+    AddInventoryErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          example: "2023-05-20T14:30:15.123Z"
+        status:
+          type: integer
+          example: 404
+        error:
+          type: string
+          example: "Not Found"
+        message:
+          type: string
+          example: "Product with Skucode: IPHONE13-128 is not in stock"
+        path:
+          type: string
+          example: "/api/inventory/add"
