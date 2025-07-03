@@ -17,4 +17,3 @@ services:
     networks:
       - inventory-service-network
       - microservices-spring-network
-
