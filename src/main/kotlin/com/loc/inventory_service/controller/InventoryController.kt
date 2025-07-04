@@ -28,14 +28,14 @@ class InventoryController(
         return checkStockService.isInStock(inventory)
     }
 
-     @PostMapping("/add")
-     fun addInventory(@RequestBody addInventoryRequest: AddInventoryRequest): ResponseEntity<Any> {
-         val result = addInventoryService.addInventory(addInventoryRequest.toModel())
+    @PostMapping("/add")
+    fun addInventory(@RequestBody addInventoryRequest: AddInventoryRequest): ResponseEntity<Any> {
+        val result = addInventoryService.addInventory(addInventoryRequest.toModel())
 
-         return ResponseEntity
-             .status(HttpStatus.CREATED)
-             .contentType(MediaType.APPLICATION_JSON)
-             .body(result.toResponse())
-     }
+        return ResponseEntity
+            .status(HttpStatus.CREATED)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(result.toResponse())
+    }
 
 }
