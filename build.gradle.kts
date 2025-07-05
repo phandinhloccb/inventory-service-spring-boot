@@ -3,7 +3,7 @@ val generatedResourcesDir = "${layout.buildDirectory.get()}/generated-resources"
 plugins {
 	kotlin("jvm") version "1.9.25"
 	kotlin("plugin.spring") version "1.9.25"
-	id("org.springframework.boot") version "3.5.3"
+	id("org.springframework.boot") version "3.2.5"
 	id("io.spring.dependency-management") version "1.1.7"
 	kotlin("plugin.jpa") version "1.9.25"
 	id("org.openapi.generator") version "7.4.0"
@@ -29,9 +29,6 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.liquibase:liquibase-core")
-	implementation("io.swagger.core.v3:swagger-annotations:2.2.15")
-	implementation("io.swagger.core.v3:swagger-models:2.2.15")
-	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
 
@@ -39,6 +36,12 @@ dependencies {
     liquibaseRuntime("org.liquibase:liquibase-core:4.20.0")
     liquibaseRuntime("mysql:mysql-connector-java:8.0.33")
     liquibaseRuntime("info.picocli:picocli:4.6.3")
+
+	// Micrometer Prometheus for /actuator/prometheus endpoint
+	implementation("io.micrometer:micrometer-registry-prometheus")
+    
+	//SpringDoc dependencies and use compatible version
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
